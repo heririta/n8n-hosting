@@ -27,6 +27,12 @@ services:
     image: docker.n8n.io/n8nio/n8n
     restart: always
     environment:
+      - N8N_HOST=${N8N_HOST}
+      - N8N_PORT=${N8N_PORT}
+      - N8N_PROTOCOL={N8N_PROTOCOL}
+      - NODE_ENV=production
+      - WEBHOOK_URL=http://${N8N_HOST}:${N8N_PORT}/
+      - GENERIC_TIMEZONE=${GENERIC_TIMEZONE}
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_HOST=postgres
       - DB_POSTGRESDB_PORT=5432
